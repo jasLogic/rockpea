@@ -1,5 +1,8 @@
 TODO:
+- GRF support for pullup / -downs and iomux
 - I2C
 - SPI
 - PWM
+- Timer
 - make using autotools and libtool
+- Documentation

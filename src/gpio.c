@@ -22,14 +22,14 @@
 
 #include "peripheral.h"
 
-static const size_t GPIO_OFFSET[5] = {
+const size_t GPIO_OFFSET[5] = {
     0xFF720000, // GPIO0
     0xFF730000, // GPIO1
     0xFF780000, // GPIO2
     0xFF788000, // GPIO3
     0xFF790000 // GPIO4
 };
-static const size_t GPIO_SIZE = 0x64;
+const size_t GPIO_SIZE = 0x64;
 
 volatile uint32_t *gpio_base_ptr[5] = {NULL, NULL, NULL, NULL, NULL};
 
@@ -39,7 +39,7 @@ int gpio_map(int num)
         return peripheral_map(&gpio_base_ptr[num], GPIO_OFFSET[num], GPIO_SIZE);
     } else {
         for (unsigned int i = 0; i < 5; ++i) {
-            int ret = peripheral_map(&gpio_base_ptr[num], GPIO_OFFSET[i], GPIO_SIZE);
+            int ret = peripheral_map(&gpio_base_ptr[i], GPIO_OFFSET[i], GPIO_SIZE);
             if (ret < 0) {
                 return ret;
             }
@@ -53,29 +53,29 @@ void gpio_unmap(int num)
         peripheral_unmap(gpio_base_ptr[num], GPIO_SIZE);
     } else {
         for (unsigned int i = 0; i < 5; ++i) {
-            peripheral_unmap(gpio_base_ptr[num], GPIO_SIZE);
+            peripheral_unmap(gpio_base_ptr[i], GPIO_SIZE);
         }
     }
 }
 
-void gpio_out(int num, uint32_t pin)
+void gpio_out(gpio_pin pin)
 {
-    GPIO(num)->SWPORTA_DDR |= 1 << pin;
+    GPIO(pin.port)->SWPORTA_DDR |= 1 << pin.pin;
 }
-void gpio_inp(int num, uint32_t pin)
+void gpio_inp(gpio_pin pin)
 {
-    GPIO(num)->SWPORTA_DDR &= ~(1 << pin);
+    GPIO(pin.port)->SWPORTA_DDR &= ~(1 << pin.pin);
 }
 
-inline void gpio_set(int num, uint32_t pin)
+inline void gpio_set(gpio_pin pin)
 {
-    GPIO(num)->SWPORTA_DR |= 1 << pin;
+    GPIO(pin.port)->SWPORTA_DR |= 1 << pin.pin;
 }
-inline void gpio_clr(int num, uint32_t pin)
+inline void gpio_clr(gpio_pin pin)
 {
-    GPIO(num)->SWPORTA_DR &= ~(1 << pin);
+    GPIO(pin.port)->SWPORTA_DR &= ~(1 << pin.pin);
 }
-inline uint32_t gpio_tst(int num, uint32_t pin)
+inline uint32_t gpio_tst(gpio_pin pin)
 {
-    return GPIO(num)->EXT_PORTA & (1 << pin);
+    return GPIO(pin.port)->EXT_PORTA & (1 << pin.pin);
 }
