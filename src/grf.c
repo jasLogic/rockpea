@@ -33,6 +33,18 @@ volatile struct grf_register_map *GRF = NULL;
 static volatile uint32_t *pmugrf_base_ptr = NULL;
 volatile struct pmugrf_register_map *PMUGRF = NULL;
 
+int grf_map(void)
+{
+    if (peripheral_map(&grf_base_ptr, GRF_OFFSET, GRF_SIZE) < 0)
+        return -1;
+    GRF = (volatile struct grf_register_map *)(grf_base_ptr + 0x800);
+    return 0;
+}
+void grf_unmap(void)
+{
+    peripheral_unmap(grf_base_ptr, GRF_SIZE);
+}
+
 int pmugrf_map(void)
 {
     if (peripheral_map(&pmugrf_base_ptr, PMUGRF_OFFSET, PMUGRF_SIZE) < 0)

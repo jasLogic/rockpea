@@ -296,7 +296,250 @@ struct grf_register_map {
     RESERVED(0x778); // 0xc220 ... 0xdffc
 
     uint32_t GPIO2A_IOMUX; // 0xe000
+    uint32_t GPIO2B_IOMUX;
+    uint32_t GPIO2C_IOMUX;
+    uint32_t GPIO2D_IOMUX;
+    uint32_t GPIO3A_IOMUX; // 0xe010
+    uint32_t GPIO3B_IOMUX;
+    uint32_t GPIO3C_IOMUX;
+    uint32_t GPIO3D_IOMUX;
+    uint32_t GPIO4A_IOMUX; // 0xe020
+    uint32_t GPIO4B_IOMUX;
+    uint32_t GPIO4C_IOMUX;
+    uint32_t GPIO4D_IOMUX;
+    uint32_t: 32; // 0xe030
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t GPIO2A_P; // 0xe040
+    uint32_t GPIO2B_P;
+    uint32_t GPIO2C_P;
+    uint32_t GPIO2D_P;
+    uint32_t GPIO3A_P; // 0xe050
+    uint32_t GPIO3B_P;
+    uint32_t GPIO3C_P;
+    uint32_t GPIO3D_P;
+    uint32_t GPIO4A_P; // 0xe060
+    uint32_t GPIO4B_P;
+    uint32_t GPIO4C_P;
+    uint32_t GPIO4D_P;
+    uint32_t: 32; // 0xe070
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t GPIO2A_SR; // 0xe080
+    uint32_t GPIO2B_SR;
+    uint32_t GPIO2C_SR;
+    uint32_t GPIO2D_SR;
+    uint32_t: 32; // 0xe090
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t GPIO3D_SR;
+    uint32_t GPIO4A_SR; // 0xe0a0
+    uint32_t GPIO4B_SR;
+    uint32_t GPIO4C_SR;
+    uint32_t GPIO4D_SR;
+    uint32_t: 32; // 0xe0b0
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t GPIO2A_SMT; // 0xe0c0
+    uint32_t GPIO2B_SMT;
+    uint32_t GPIO2C_SMT;
+    uint32_t GPIO2D_SMT;
+    uint32_t GPIO3A_SMT; // 0xe0d0
+    uint32_t GPIO3B_SMT;
+    uint32_t GPIO3C_SMT;
+    uint32_t GPIO3D_SMT;
+    uint32_t GPIO4A_SMT; // 0xe0e0
+    uint32_t GPIO4B_SMT;
+    uint32_t GPIO4C_SMT;
+    uint32_t GPIO4D_SMT;
+    uint32_t: 32; // 0xe0f0
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t GPIO2A_E; // 0xe100
+    uint32_t GPIO2B_E;
+    uint32_t GPIO2C_E;
+    uint32_t GPIO2D_E;
+    uint32_t GPIO3A_E01; // 0xe110
+    uint32_t GPIO3A_E2;
+    uint32_t GPIO3B_E01;
+    uint32_t GPIO3B_E2;
+    uint32_t GPIO3C_E01; // 0xe120
+    uint32_t GPIO3C_E2;
+    uint32_t GPIO3D_E;
+    uint32_t GPIO4A_E;
+    uint32_t GPIO4B_E01; // 0xe130
+    uint32_t GPIO4B_E2;
+    uint32_t GPIO4C_E;
+    uint32_t GPIO4D_E;
+
+    RESERVED(0x10); // 0xe140 ... 0xe17c
+
+    uint32_t: 32; // 0xe180
+    uint32_t: 32;
+    uint32_t GPIO2C_HE;
+    uint32_t GPIO2D_HE;
+
+    RESERVED(0x1c); // 0xe190 ... 0xe1fc
+
+    uint32_t SOC_CON0; // 0xe200
+    uint32_t SOC_CON1;
+    uint32_t SOC_CON2;
+    uint32_t SOC_CON3;
+    uint32_t SOC_CON4; // 0xe210
+    uint32_t SOC_CON_5_PCIE;
+    uint32_t: 32;
+    uint32_t SOC_CON7;
+    uint32_t SOC_CON8; // 0xe220
+    uint32_t SOC_CON_9_PCIE;
+    uint32_t: 32;
+    uint32_t: 32;
+
+    RESERVED(0x1c); // 0xe230 ... 0xe29c
+
+    uint32_t SOC_STATUS0; // 0xe2a0
+    uint32_t SOC_STATUS1;
+    uint32_t SOC_STATUS2;
+    uint32_t SOC_STATUS3;
+    uint32_t SOC_STATUS4; // 0xe2b0
+    uint32_t SOC_STATUS5;
+    uint32_t: 32;
+    uint32_t: 32;
+
+    RESERVED(0x30); // 0xe2c0 ... 0xe37c
+
+    uint32_t DDRC0_CON0; // 0xe380
+    uint32_t DDRC0_CON1;
+    uint32_t DDRC1_CON0;
+    uint32_t DDRC1_CON1;
+
+    RESERVED(0xc); // 0xe390 ... e3bc
+
+    uint32_t SIG_DETECT_CON0; // 0xe3c0
+    uint32_t: 32;
+    uint32_t SIG_DETECT_CON1;
+    uint32_t: 32;
+    uint32_t SIG_DETECT_CLR; // 0xe3d0
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t SIG_DETECT_STATUS; // 0xe3e0
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+
+    RESERVED(0x18); // 0xe3f0 ... 0xe44c
+
+    uint32_t USB20_PHY0_CON0; // 0xe450
+    uint32_t USB20_PHY0_CON1;
+    uint32_t USB20_PHY0_CON2;
+    uint32_t USB20_PHY0_CON3;
+    uint32_t USB20_PHY1_CON0; // 0xe460
+    uint32_t USB20_PHY1_CON1;
+    uint32_t USB20_PHY1_CON2;
+    uint32_t USB20_PHY1_CON3;
+
+    RESERVED(0x44); // 0xe470 ... 0xe57c
+
+    uint32_t USB3PHY0_CON0; // 0xe580
+    uint32_t USB3PHY0_CON1;
+    uint32_t USB3PHY0_CON2;
+    uint32_t USB3PHY1_CON0;
+    uint32_t USB3PHY1_CON1; // 0xe590
+    uint32_t USB3PHY1_CON2;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32; // 0xe5a0
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32; // 0xe5b0
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t USB3PHY_STATUS0; // 0xe5c0
+    uint32_t USB3PHY_STATUS1;
+    uint32_t: 32;
+    uint32_t: 32;
+
+    RESERVED(0xc); // 0xe5d0 ... 0xe5fc
+
+    uint32_t DLL_CON0; // 0xe600
+    uint32_t DLL_CON1;
+    uint32_t DLL_CON2;
+    uint32_t DLL_CON3;
+    uint32_t DLL_CON4; // 0xe610
+    uint32_t DLL_CON5;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t DLL_STATUS0; // 0xe620
+    uint32_t DLL_STATUS1;
+    uint32_t DLL_STATUS2;
+    uint32_t DLL_STATUS3;
+    uint32_t DLL_STATUS4; // 0xe630
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t IO_VSEL; // 0xe640
+    uint32_t SARADC_TESTBIT;
+    uint32_t TSADC_TESTBIT_L;
+    uint32_t TSADC_TESTBIT_H;
+
+    RESERVED(0x6c); // 0xe650 ... 0xe7fc
+
+    uint32_t CHIP_ID_ADDR; // 0xe800
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+
+    RESERVED(0x1c); // 0xe810 ... 0xe87c
+
+    uint32_t FAST_BOOT_ADDR; // 0xe880
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+
+    RESERVED(0x1dc); // 0xe890 ... 0xeffc
+
+    uint32_t EMMCCORE_CON0; // 0xf000
+    uint32_t EMMCCORE_CON1;
+    uint32_t EMMCCORE_CON2;
+    uint32_t EMMCCORE_CON3;
+    uint32_t EMMCCORE_CON4; // 0xf010
+    uint32_t EMMCCORE_CON5;
+    uint32_t EMMCCORE_CON6;
+    uint32_t EMMCCORE_CON7;
+    uint32_t EMMCCORE_CON8; // 0xf020
+    uint32_t EMMCCORE_CON9;
+    uint32_t EMMCCORE_CON10;
+    uint32_t EMMCCORE_CON11;
+    uint32_t: 32; // 0xf030
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t: 32;
+    uint32_t EMMCCORE_STATUS0; // 0xf040
+    uint32_t EMMCCORE_STATUS1;
+    uint32_t EMMCCORE_STATUS2;
+    uint32_t EMMCCORE_STATUS3;
+
+    RESERVED(0x1cc); // 0xf050 ... 0xf77c
+
+    uint32_t EMMCPHY_CON0; // 0xf780
+    uint32_t EMMCPHY_CON1;
+    uint32_t EMMCPHY_CON2;
+    uint32_t EMMCPHY_CON3;
+    uint32_t EMMCPHY_CON4; // 0xf790
+    uint32_t EMMCPHY_CON5;
+    uint32_t EMMCPHY_CON6;
+    uint32_t: 32;
+    uint32_t EMMCPHY_STATUS; // 0xf7a0
 };
+
+
+// *************** PMUGRF ***************
 
 struct pmugrf_register_map {
     uint32_t GPIO0A_IOMUX; // 0x0
@@ -308,7 +551,7 @@ struct pmugrf_register_map {
     uint32_t GPIO1C_IOMUX;
     uint32_t GPIO1D_IOMUX;
 
-    RESERVED(8); // 0x20 ... 0x30
+    RESERVED(0x8); // 0x20 ... 0x3c
 
     uint32_t GPIO0A_P; // 0x40
     uint32_t GPIO0B_P;
@@ -319,7 +562,7 @@ struct pmugrf_register_map {
     uint32_t GPIO1C_P;
     uint32_t GPIO1D_P;
 
-    RESERVED(8); // 0x60 ... 0x70
+    RESERVED(0x8); // 0x60 ... 0x7c
 
     uint32_t GPIO0A_E; // 0x80
     uint32_t: 32;
@@ -338,7 +581,7 @@ struct pmugrf_register_map {
     uint32_t GPIO1D_E;
     uint32_t: 32;
 
-    RESERVED(16); // 0xc0 ... 0xf0
+    RESERVED(0x10); // 0xc0 ... 0xfc
 
     uint32_t GPIO0L_SR; // 0x100
     uint32_t: 32;
@@ -357,7 +600,7 @@ struct pmugrf_register_map {
     uint32_t GPIO1C_SMT;
     uint32_t GPIO1D_SMT;
 
-    RESERVED(8); // 0x140 ... 0x150
+    RESERVED(0x8); // 0x140 ... 0x15c
 
     uint32_t GPIO0L_HE; // 0x160
     uint32_t: 32;
@@ -380,7 +623,7 @@ struct pmugrf_register_map {
     uint32_t SOC_CON10;
     uint32_t SOC_CON11;
 
-    RESERVED(36); // 0x1b0 ... 0x230
+    RESERVED(0x24); // 0x1b0 ... 0x23c
 
     uint32_t PMUPVTM_CON0; // 0x240
     uint32_t PMUPVTM_CON1;
@@ -391,7 +634,7 @@ struct pmugrf_register_map {
     uint32_t: 32;
     uint32_t: 32;
 
-    RESERVED(40); // 0x260 ... 0x2f0
+    RESERVED(0x28); // 0x260 ... 0x2fc
 
     uint32_t OS_REG0; // 0x300
     uint32_t OS_REG1;

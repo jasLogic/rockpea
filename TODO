@@ -1,5 +1,5 @@
 TODO:
-- GRF support for pullup / -downs and iomux
+- pullup / -downs and iomux
 - I2C
 - SPI
 - PWM
