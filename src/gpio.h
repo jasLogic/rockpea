@@ -31,20 +31,6 @@ typedef struct {
     uint32_t pin: 16;
 } gpio_pin;
 
-enum {
-    GPIO_ALL = -1,
-    GPIO0 = 0,
-    GPIO1,
-    GPIO2,
-    GPIO3,
-    GPIO4
-};
-
-extern const size_t GPIO_OFFSET[5];
-extern const size_t GPIO_SIZE;
-
-extern volatile uint32_t *gpio_base_ptr[5];
-
 struct gpio_register_map{
         uint32_t SWPORTA_DR; // 0x0
         uint32_t SWPORTA_DDR;
@@ -72,10 +58,20 @@ struct gpio_register_map{
         uint32_t: 32;
         uint32_t LS_SYNC; // 0x60
 };
-// usage: GPIO(GPIOx)->register , with x = 0 ... 4
-#define GPIO(n) ((volatile struct gpio_register_map *)gpio_base_ptr[n])
 
-// use -1 to (un)map all gpios
+enum {
+    GPIO_ALL = -1,
+    GPIO0 = 0,
+    GPIO1 = 1,
+    GPIO2 = 2,
+    GPIO3 = 3,
+    GPIO4 = 4
+};
+
+// usage: GPIO[GPIOx]->register , with x = 0 .. 4
+extern volatile struct gpio_register_map *GPIO[5];
+
+// use GPIO_ALL (-1) to (un)map all gpios
 int  gpio_map(int num);
 void gpio_unmap(int num);
 
